@@ -9,7 +9,7 @@ dotenv.config()
 
 mongoose.connect(process.env.DATABASE_ACCESS,() => {console.log("database connected")})
 
-let authorized = false;
+let authorized = true;
 
 var auth = function(req, res, next) {
     if (authorized) {
@@ -19,8 +19,9 @@ var auth = function(req, res, next) {
       return
     }
   }
-
+app.options('*', cors())
 app.use('/',auth);
 app.use(cors())
+app.use(express.json())
 app.use('/app', routesUrls)
 app.listen(4000, () => console.log("server is up and running"));

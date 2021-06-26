@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect} from 'react';
+import ReactPlayer from 'react-player';
+import Header from './component/header/header'
+import * as actionCreators from './actions/action'
+import {connect} from "react-redux";    
 
-function App() {
+function App(props:any) {
+
+  useEffect(() => {
+  },[])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header/>
     </div>
   );
 }
+
+
 
 export default App;
