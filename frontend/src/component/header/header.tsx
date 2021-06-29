@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import {IconButton} from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
 import TextField from '@material-ui/core/TextField';
 import AddCircle from '@material-ui/icons/AddCircle';
 import * as actionCreators from '../../actions/action'
-import {connect} from "react-redux";    
+import {connect,useDispatch} from "react-redux";    
+import {fetchVideoDetails} from '../../actions/action';
 
 
 const Header = (props) => {
-
     const [url, getUrl] = useState("");
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        console.log("url changed")
+        dispatch(fetchVideoDetails())
+    }, [props.test])
+
     return(
         <div className= "header">
             <div className="container">
@@ -48,5 +55,11 @@ const mapDispatchToProps = (dispatch:any) => {
     }
   };
 
-export default connect(null,mapDispatchToProps)(Header);
+const mapStateToProps = state => ({
+    videoList: state.videoData.results,
+    test: state.videoData.videoUrl
+})
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(Header);
 

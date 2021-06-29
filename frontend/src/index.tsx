@@ -11,6 +11,7 @@ import thunk from 'redux-thunk';
 const rootReducer = combineReducers({
   videoData:VideoReducer
 })
+export type RootState = ReturnType<typeof rootReducer>
 
 const store = createStore(rootReducer,compose(applyMiddleware(thunk)))
 

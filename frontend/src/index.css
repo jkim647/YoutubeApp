@@ -6,6 +6,10 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+.table {
+    font-size: 12px;
+  }
+
 .header{
     background-color: #F8F8F8;
     padding-top: 15px;
@@ -27,3 +31,10 @@ body{
 .MuiFormLabel-root.Mui-focused {
     color: tomato !important;
   }
+
+.video-list {
+  background-color: #F5F5F5;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  height: 400px;
+}

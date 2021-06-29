@@ -1,12 +1,18 @@
-import {FETCH_VIDEO_DETAIL, SAVE_VIDEO_DETAIL}  from '../actions/types'
+import {FETCH_VIDEO_DETAIL, SAVE_VIDEO_DETAIL,Video}  from '../actions/types'
+
+interface VideoListProps {
+    results: Video[];
+    loading: Boolean;
+    videoUrl: String;
+}
 
 const initState= {
     results: [],
     loading: false,
-    videoUrl: ""
+    videoUrl: "",
 }
 
-export default function VideoReducer(state=initState, action:any){
+const VideoReducer = (state=initState, action:any) => {
     switch (action.type) {
         case FETCH_VIDEO_DETAIL:
             console.log(action.payload)
@@ -18,6 +24,7 @@ export default function VideoReducer(state=initState, action:any){
         case SAVE_VIDEO_DETAIL:
             return{
                 ...state, 
+                videoUrl: action.payload
                 
             }
             
@@ -26,3 +33,4 @@ export default function VideoReducer(state=initState, action:any){
     }
 }
 
+export default VideoReducer;
